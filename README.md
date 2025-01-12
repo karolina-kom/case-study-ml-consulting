@@ -67,7 +67,7 @@ Based on these results, the Decision Tree model was excluded from the final eval
 Excluding G1 and G2 features, the Random Forest Regressor and Linear Regression models were evaluated:
 
 | Model | With/Without G1 and G2 | Mean Squared Error (MSE) | R² Score |
-| ----------- | ----------- | ----------- |
+| ----------- | ----------- | ----------- | ----------- |
 | Random Forest | With | 1.3672 | 0.8815 |
 | Linear Regression | With | 2.2615 | 0.8040 |
 | Random Forest | Without | 7.5308 | 0.3472 |
