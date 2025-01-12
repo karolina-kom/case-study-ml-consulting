@@ -66,23 +66,24 @@ Based on these results, the Decision Tree model was excluded from the final eval
 ### Final Model Evaluation
 Excluding G1 and G2 features, the Random Forest Regressor and Linear Regression models were evaluated:
 
-**Random Forest:**
-- Mean Squared Error (MSE): 7.5308
-- R² Score: 0.3472
-
-**Linear Regression:**
-- Mean Squared Error (MSE): 12.6722
-- R² Score: -0.0984
+| Model | With/Without G1 and G2 | Mean Squared Error (MSE) | R² Score |
+| ----------- | ----------- | ----------- |
+| Random Forest | With | 1.3672 | 0.8815 |
+| Linear Regression | With | 2.2615 | 0.8040 |
+| Random Forest | Without | 7.5308 | 0.3472 |
+| Linear Regression | Without| 12.6722 | -0.0984 |
 
 Random Forest performed significantly better than Linear Regression, showing higher R² and lower MSE.
+
+![final results_plot](/visualisations/final_results.png)
 
 ## Model Interpretation and Feature Importance
 The Random Forest model identified several key features as important in predicting student performance:
 
-- Previous Grades (G1 and G2): These were the most influential factors in determining the final grade.
-- Absences: High absenteeism was strongly associated with lower academic performance.
-- Failures: The number of past failures also had a considerable impact on future performance.
-- Health: Students’ self-reported health influenced performance, with poor health leading to lower grades.
+- **Previous Grades (G1 and G2)**: These were the most influential factors in determining the final grade.
+- **Absences**: High absenteeism was strongly associated with lower academic performance.
+- **Failures**: The number of past failures also had a considerable impact on future performance.
+- **Health**: Students’ self-reported health influenced performance, with poor health leading to lower grades.
 
 ![feature_importance_g1_g2](/visualisations/feature_importance_g1_g2.png)
 ![feature_importance_no_g1_g2](/visualisations/feature_importance_no_g1_g2.png)
