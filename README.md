@@ -92,7 +92,7 @@ The Random Forest model identified several key features as important in predicti
 Based on the results, I provide the following recommendations for educators:
 
 - **Monitor Absenteeism**: Reducing absenteeism can help improve student performance.
-- Support Students with Previous Failures: Target interventions for students who have failed in the past.
+- **Support Students with Previous Failures**: Target interventions for students who have failed in the past.
 - **Consider Health Factors**: Ensure students with health issues are provided with accommodations.
 - **Encourage Early Academic Success**: Support students early in their academic career, particularly those with low prior grades.
 
