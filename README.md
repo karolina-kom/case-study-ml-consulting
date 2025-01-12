@@ -1,9 +1,9 @@
 # Predicting Student Performance Using Machine Learning
 
-1. Introduction
+## Introduction
 In this project, I aimed to predict student performance based on various features, including demographic, academic, and school-related data. The task was to apply multiple machine learning models and evaluate their performance to make accurate predictions of student final grades.
 
-2. Dataset Overview
+## Dataset Overview
 The dataset I used in this project was the [Student Performance Data Set](https://archive.ics.uci.edu/ml/datasets/Student+Performance) from the UCI Machine Learning Repository.
 
 The dataset includes features such as:
@@ -13,7 +13,7 @@ The dataset includes features such as:
 - School: school, study time failures, absences etc.
 - The target variable is G3, the final grade.
 
-3. Data Preprocessing
+## Data Preprocessing
 Before training the models, the data was preprocessed to ensure it was clean and ready for use.
 
 This included:
@@ -22,8 +22,8 @@ This included:
 - Average G1, G2, G3 columns: created new grade columns using the mean from the Math and Portuguese grade columns.
 - Encoding categorical variables: Categorical features were handled appropriately.
 
-4. Model Training and Evaluation
-4.1 Cross-Validation Results (Excluding G1 and G2)
+## Model Training and Evaluation
+### Cross-Validation Results (Excluding G1 and G2)
 To evaluate the models’ performance, I applied cross-validation. Below are the results for the models evaluated:
 
 **Decision Tree:**
@@ -42,7 +42,7 @@ To evaluate the models’ performance, I applied cross-validation. Below are the
 
 Based on these results, the Decision Tree model was excluded from the final evaluation due to its high variability and poor performance.
 
-4.2 Final Model Evaluation (Including G1 and G2)
+### Final Model Evaluation (Excluding G1 and G2)
 Excluding G1 and G2 features, the Random Forest Regressor and Linear Regression models were evaluated:
 
 **Random Forest:**
@@ -55,7 +55,7 @@ Excluding G1 and G2 features, the Random Forest Regressor and Linear Regression 
 
 Random Forest performed significantly better than Linear Regression, showing higher R² and lower MSE.
 
-5. Model Interpretation and Feature Importance
+## Model Interpretation and Feature Importance
 The Random Forest model identified several key features as important in predicting student performance:
 
 - Previous Grades (G1 and G2): These were the most influential factors in determining the final grade.
@@ -63,14 +63,14 @@ The Random Forest model identified several key features as important in predicti
 - Failures: The number of past failures also had a considerable impact on future performance.
 - Health: Students’ self-reported health influenced performance, with poor health leading to lower grades.
 
-6. Visualizations
+## Visualizations
 Below are some visualizations that summarize key findings from the analysis:
 
-Feature Importance (Random Forest)
+### Feature Importance (Random Forest)
 
-Model Performance Comparison
+### Model Performance Comparison
 
-7. Insights and Recommendations
+## Insights and Recommendations
 Based on the results, I provide the following recommendations for educators:
 
 - Monitor Absenteeism: Reducing absenteeism can help improve student performance.
@@ -78,7 +78,5 @@ Based on the results, I provide the following recommendations for educators:
 - Consider Health Factors: Ensure students with health issues are provided with accommodations.
 - Encourage Early Academic Success: Support students early in their academic career, particularly those with low prior grades.
 
-8. Conclusion
+## Conclusion
 The Random Forest Regressor performed the best, with a high R² score and low MSE. It is an effective model for predicting student performance, providing valuable insights into the key factors that influence academic outcomes.
-
-
