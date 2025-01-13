@@ -19,15 +19,15 @@ Before training the models, the data was preprocessed to ensure it was clean and
 
 This included:
 - **Merging the Math and Portuguese subject datasets**: only kept students present in both datasets by performing an inner merge using the features listed in the student-merge.R file.*
-- **Handling missing data**: checked for missing data after merging datasets.
+- **Handling missing data**: checked for and handled missing data after merging datasets.
 - **Combining remaining feature columns**: created new average/combined columns for remaining feature columns which were not used to merge the datasets (e.g. absences, guardian, studytime etc.)
 - **Creating average G1, G2, G3 columns**: created new grade columns using the mean from the Math and Portuguese grade columns.
 - **Encoding categorical variables**: Categorical features were handled appropriately.
 
-*I decided to only keep students present in both datasets in order to minimise time spent handling missing values, however I acknowledge that this reduces the amount of data I has to train the model. An improvement to my approach could involve performing an outer merge on the two datasets, keeping all students from both datasets.
+*I decided to only keep students present in both datasets in order to minimise time spent handling missing values, however this reduced the amount of data I had to train the model. An improvement to my approach could involve performing an outer merge on the two datasets, keeping all students from both datasets, and handling the missing values.
 
 ## Data Exploration
-I performed a few data exploration steps to investigate the data further. 
+I performed a few data exploration steps to investigate the distribution of the data and correlations/relationships between features and the target value.
 
 ### Distribution of G3 grades
 Below are two plots: one of the distribution of the final G3 grade for individual subjects (Mathematics and Portuguese), and one of the distribution of the final G3 grade taking the mean of both subjects for each students. 
