@@ -22,7 +22,7 @@ This included:
 - **Handling missing data**: checked for and handled missing data after merging datasets.
 - **Combining remaining feature columns**: created new average/combined columns for remaining feature columns which were not used to merge the datasets (e.g. absences, guardian, studytime etc.)
 - **Creating average G1, G2, G3 columns**: created new grade columns using the mean from the Math and Portuguese grade columns.
-- **Encoding categorical variables**: Categorical features were handled appropriately.
+- **Encoding categorical features**: used one hot encoding for categorical features.
 
 *I decided to only keep students present in both datasets in order to minimise time spent handling missing values, however this reduced the amount of data I had to train the model. An improvement to my approach could involve performing an outer merge on the two datasets, keeping all students from both datasets, and handling the missing values.
 
