@@ -24,42 +24,41 @@ This included:
 - **Creating average G1, G2, G3 columns**: created new grade columns using the mean from the Math and Portuguese grade columns.
 - **Encoding categorical features**: used one hot encoding for categorical features.
 
-*I decided to only keep students present in both datasets in order to minimise time spent handling missing values, however this reduced the amount of data I had to train the model. An improvement to my approach could involve performing an outer merge on the two datasets, keeping all students from both datasets, and handling the missing values.
+*I decided to only keep students present in both datasets in order to minimise time spent handling missing values and to allow me to easily calculate a mean G3 grade for each student, however this reduced the amount of data I had to train the model. An improvement to my approach could involve performing an outer merge on the two datasets, keeping all students from both datasets, and handling the missing values.
 
 ## Data Exploration
 I performed a few data exploration steps to investigate the distribution of the data and correlations/relationships between features and the target value.
 
 ### Distribution of G3 grades
-Below are two plots: one of the distribution of the final G3 grade for individual subjects (Mathematics and Portuguese), and one of the distribution of the final G3 grade taking the mean of both subjects for each students. 
+Below are two plots: one of the distribution of the final G3 grade for individual subjects (Mathematics and Portuguese), and one of the distribution of the average final G3 grade, taking the mean of both subjects for each student. 
 
 ![G3_subject_grade_distribution_plot](/visualisations/G3_mat_por_distribution.png)
 ![G3_average_grade_distribution_plot](/visualisations/G3_avg_distribution.png)
 
-Based on the distributions, I decided to look at the average G3 grade instead of the G3 values for individual subjects. The distribution of grades is much smoother and closer to a normal distribution, and using the average G3 grade will give more an insight into overall academic performance, rather than subject-specific performance.
+Based on the distributions, I decided use the average G3 grade for the target variable, instead of the G3 values for individual subjects. The distribution of grades is much smoother and closer to a normal distribution, and using the average G3 grade will give more insight into overall academic performance, rather than subject-specific performance.
 
 ### Correlation Matrix
-Next, I investigated the correlation between numeric features using a correlaton matrix. Features with high correlations will either be not be used to train the machine learning model or handled carefully.
+Next, I investigated the correlation between the numeric features using a correlaton matrix. Features with high correlations will either not be used to train the machine learning model or handled carefully.
 
 ![correlation_matrix_plot](/visualisations/correlation_matrix.png)
 
 Based on the correlation matrix, we can see that G1 and G2 grades are highly correlated with the final G3 grade. Our aim is to investigate the features which influence student performance, so while past exam performance is important, we want to also consider features which educators have more influence over. Therefore, we will train the models twice: once including G1 and G2 as features, and once excluding G1 and G2 as features.
+
+The correlation between G1 and G3, and G2 and G3, is shown clearly on the scatter plots below.
+
+![G1_avg_G3_avg_scatter](/visualisations/G1_avg_G3_avg_scatter.png)
+![G2_avg_G3_avg_scatter](/visualisations/G2_avg_G3_avg_scatter.png)
 
 ### Key Feature Relationship
 I investigated the relationship between a key feature (absences) and the final G3 grade using a scatter plot.
 
 ![G3_average_absence_scatter_plot](/visualisations/G3_avg_absence_scatter.png)
 
-Based on the scatter plot, we can see there is a weak relationship between absences and the final G3 grade (more absences results in a lower average grade.)
+Based on the scatter plot, we can see there could be a relationship between absences and the final G3 grade (more absences resulting in a lower G3 grade.)
 
 ## Model Training and Evaluation
-### Feature Selection
-The G1 and G2 grades are highly correlated with the final G3 grade. After exploring the relationship between G1 and G3, and G2 and G3, I decided to train and evaluation the model using two feature sets: one including G1 and G2 and one excluding G1 and G2.
-
-![G1_avg_G3_avg_scatter](/visualisations/G1_avg_G3_avg_scatter.png)
-![G2_avg_G3_avg_scatter](/visualisations/G2_avg_G3_avg_scatter.png)
-
 ### Cross-Validation Results
-To evaluate the models’ performance, I applied cross-validation. Below are the results for the model cross-validation:
+To ensure the robustness of the model evaluation, I implemented cross-validation. Below are the results for the model cross-validation:
 
 | Model | Mean Squared Error (MSE) | Standard Deviation |
 | ----------- | ----------- | ----------- |
@@ -87,7 +86,7 @@ The results are summarised in the plot below:
 
 ![final results_plot](/visualisations/final_results.png)
 
-We can see that both models perform significantly better when G1 and G2 are included as features. However, Random Forest performed better than Linear Regression using both feature sets, as it shows higher R² and lower MSE.
+We can see that both models perform significantly better when G1 and G2 are included as features. However, the Random Forest model performed better than the Linear Regression model, as it shows higher R² and lower MSE, for both feature sets.
 
 ## Model Interpretation and Feature Importance
 The Random Forest model identified several key features as important in predicting student performance:
